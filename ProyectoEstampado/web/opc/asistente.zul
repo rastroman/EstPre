@@ -1,0 +1,319 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<zk xmlns="http://www.zkoss.org/2005/zul">
+
+
+    <window   id="winModal" title="BIENVENIDO AL ASISTENTE" style="onModal" width="500px"  >
+        <attribute name="onCreate">
+<![CDATA[ 
+ winModal.doModal();
+ winModal.setClosable(true);
+]]>
+        </attribute>
+        <div align="center"> 
+            <image src="/img/asistente.gif"/>
+        </div> 
+        <grid>
+    
+   
+            <columns>
+                        
+                <column label=" Bienvenido al asistente de creación de componentes."/>
+			
+            </columns>
+            <rows>
+                <row>	
+                        
+                        
+                    <label value="El asistente lo guiara para agregar satisfactoriamente un componente al sistema,
+recuerda que debes acatar a cada uno de los pasos para crear o dar de alta algún
+componente, en caso de equivocarte, deberás buscar el componente agregado para
+eliminarlo o modificarlo, 'no se deben de crear datos similares', ya que en caso de hacerlo
+existiria duplicidad de información en el sistema" />
+                </row>
+            </rows>
+        </grid>
+ 
+    </window>
+
+    <window  position="center" hflex="true" id="comodin" title="Sistema de Administración" apply="controlador.Controller" border="normal">
+        <label id="comodinParte" visible="false"/>
+        <listbox id="asistbox">
+            <listhead>
+                             
+                <listheader>
+                    <label value="Opciones de Administración"/>
+                </listheader>
+            </listhead>    
+        <listitem>
+            <listcell id="altaComp" label="Alta Componentes"/>
+        </listitem> 
+        
+        <listitem>
+            <listcell id="bajaComp" label="Baja Componentes"/>
+        </listitem>
+        
+        <listitem>
+            <listcell id="editComp" label="Composición Componentes"/>
+        </listitem>
+ 
+        
+           
+        
+    </listbox>   
+        
+ 
+            <listbox id="alta" visible="false">
+            <listhead>
+                             
+                <listheader>
+                    <label value="Alta Componentes"/>
+                </listheader>
+            </listhead>    
+        <listitem>
+            <listcell id="crearParte" label="Parte"/>
+        </listitem>
+        <attribute name="onSelect">
+    comodin.doEmbedded();
+   
+    
+    
+    </attribute>
+        
+        <listitem>
+            <listcell id="crearModelo" label="Modelo"/>
+        </listitem>
+                   
+        <listitem>
+            <listcell id="crearAmef" label="Planeación y Creación del AMEF"/>
+        </listitem>
+        <listitem>
+            <listcell id="crearCarac" label="Característica"/>
+        </listitem>
+        <listitem>
+            <listcell id="crearFalla" label="Falla"/>
+        </listitem>
+        <listitem>
+            <listcell id="crearProceso" label="Proceso"/>
+        </listitem>
+        <listitem>
+            <listcell id="crearDepartamento" label="Departamento"/>
+        </listitem>
+        <listitem>
+            <listcell id="altaClient" label="Cliente"/>
+        </listitem>
+        <listitem>
+            <listcell id="altaUsuario" label="Usuario del Sistema"/>
+        </listitem>
+    </listbox>
+        
+        
+               <listbox id="baja" visible="false">
+            <listhead>
+                             
+                <listheader>
+                    <label value="Baja de Componentes"/>
+                </listheader>
+            </listhead>    
+       
+            
+        <listitem>
+            <listcell id="bajaParte" label="Parte"/>
+        </listitem>
+        <listitem>
+            <listcell id="bajaModelo" label="Modelo"/>
+        </listitem>   
+        <listitem>
+            <listcell id="bajaTroqueles" label="Troqueles"/>
+        </listitem>
+        <listitem>
+            <listcell id="bajaCarac" label="Característica"/>
+        </listitem>
+        <listitem>
+            <listcell id="bajaFalla" label="Falla"/>
+        </listitem>
+        <listitem>
+            <listcell id="bajaProceso" label="Proceso"/>
+        </listitem>
+        <listitem>
+            <listcell id="bajaDepartamento" label="Departamento"/>
+        </listitem>
+
+        
+    </listbox>   
+     
+     <listbox id="editar" visible="false">
+            <listhead>
+                             
+                <listheader>
+                    <label value="Edición de Componentes"/>
+                </listheader>
+            </listhead>    
+       
+        
+        
+        <listitem>
+            <listcell id="cambioNP" label="Cambiar Número de Parte"/>
+        </listitem>
+        <listitem>
+            <listcell id="modProcParte" label="Modificar Procesos de la Parte"/>
+        </listitem>
+        <listitem>
+            <listcell id="editFalla" label="Composición de la Falla"/>
+        </listitem>   
+        <listitem>
+            <listcell id="editIng" label="Cambiar Nivel de Ingeniería"/>
+        </listitem>
+       <listitem>
+            <listcell id="elaboraComp" label="Composición de Aprobacion - Elaboración Componentes"/>
+        </listitem>
+        <listitem>
+            <listcell id="editMat" label="Material"/>
+        </listitem>
+        <listitem>
+            <listcell id="planCtrl" label="Plan de Control"/>
+        </listitem>
+        
+    </listbox>   
+    
+     <listbox id="fallaComp" visible="false">
+            <listhead>
+                             
+                <listheader>
+                    <label value="Composición de la Falla"/>
+                </listheader>
+            </listhead>    
+       
+            
+        <listitem>
+            <listcell id="crearModoF" label="Alta Modo"/>
+        </listitem>   
+        <listitem>
+            <listcell id="crearEfectoF" label="Alta Efecto"/>
+        </listitem>
+        <listitem>
+            <listcell id="crearCausaF" label="Alta Causa"/>
+        </listitem>
+        <listitem>
+            <listcell id="crearControlPF" label="Alta Control Prevención"/>
+        </listitem>
+        <listitem>
+            <listcell id="crearControlDF" label="Alta Control Detección"/>
+        </listitem>
+        <listitem>
+            <listcell id="crearGrado" label="Alta Grado"/>
+        </listitem>
+
+
+
+         <listitem>
+            <listcell id="bajaModoF" label="Baja Modo"/>
+        </listitem>   
+        <listitem>
+            <listcell id="bajaEfectoF" label="Baja Efecto"/>
+        </listitem>
+        <listitem>
+            <listcell id="bajaCausaF" label="Baja Causa"/>
+        </listitem>
+        <listitem>
+            <listcell id="bajaControlPF" label="Baja Control Prevención"/>
+        </listitem>
+        <listitem>
+            <listcell id="bajaControlDF" label="Baja Control Detección"/>
+        </listitem>
+        <listitem>
+            <listcell id="bajaGrado" label="Baja Grado"/>
+        </listitem>
+        
+    </listbox>   
+     
+     
+     
+         <listbox id="persona" visible="false">
+            <listhead>
+                             
+                <listheader>
+                    <label value="Composición de Personal"/>
+                </listheader>
+            </listhead>    
+        <listitem>
+            <listcell id="altaPer" label="Alta Persona"/>
+        </listitem> 
+        <listitem>
+            <listcell id="bajaPer" label="Baja Persona"/>
+        </listitem>
+        <listitem>
+            <listcell id="altaEq" label="Alta Equipo"/>
+        </listitem>
+        <listitem>
+            <listcell id="bajaEq" label="Baja Equipo"/>
+        </listitem>
+        <listitem>
+            <listcell id="elabApro" label="Asignar Elaborador y Aprobador de Formato"/>
+        </listitem>
+        <listitem>
+            <listcell id="aprobadorEq" label="Asignar Equipo de Formato (SOLO AMEF)"/>
+        </listitem>
+     <listitem>
+            <listcell id="edicionFormato" label="Edición de Formatos"/>
+        </listitem>
+     
+ 
+    </listbox>   
+        
+        <listbox id="materiales" visible="false" >
+            <listhead>
+                             
+                <listheader>
+                    <label value="Administración de Materiales"/>
+                </listheader>
+            </listhead>    
+        <listitem>
+            <listcell id="altaMat" label="Alta Materiales"/>
+        </listitem> 
+        
+        <listitem>
+            <listcell id="bajaMat" label="Baja Materiales"/>
+        </listitem>
+        
+        <listitem>
+            <listcell id="updMat" label="Editar Material Existente"/>
+        </listitem>
+ 
+        
+           
+        
+    </listbox>   
+        
+    <listbox id="planControl" visible="false" >
+            <listhead>
+                             
+                <listheader>
+                    <label value="Composición del Plan de Control"/>
+                </listheader>
+            </listhead>    
+        <listitem>
+            <listcell id="crearNorma" label="Nueva Norma - Tolerancia"/>
+        </listitem> 
+        
+        <listitem>
+            <listcell id="crearCara" label="Nueva Característica Proceso - Producto"/>
+        </listitem>
+        
+        <listitem>
+            <listcell id="jig" label="Alta máquina - Jig"/>
+        </listitem>
+ 
+        
+           
+        
+    </listbox>      
+        
+        <include id="parteCrear"/>
+        
+        
+       
+        
+    </window>
+
+</zk>

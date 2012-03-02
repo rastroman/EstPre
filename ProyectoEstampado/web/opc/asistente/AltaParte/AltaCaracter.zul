@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?taglib uri="http://www.zkoss.org/dsp/web/core" prefix="c" ?>
+
+<zk xmlns="http://www.zkoss.org/2005/zul">
+    <style>
+		.z-caption .z-caption-l, .z-caption .z-caption-r {
+			
+		}
+    </style>
+    <window height="1000px" hflex="true" title="Alta Características" id="WCaracAsistente" apply="controlador.Controller" >
+     
+      
+        
+        <style>
+        .btndiv .z-button-cr, .btndiv .z-button-cl, 
+        .btndiv .z-button-bl, .btndiv .z-button-bm,
+        .btndiv .z-button-br, .btndiv .z-button-tl,
+        .btndiv .z-button-tm, .btndiv .z-button-tr {
+            background-image: none;
+        }
+        .btndiv .z-button-cm {
+            background : transparent url('') no-repeat 0 0 ;
+        }
+        .btndiv table {
+            width: 100%;
+            height: 100%;
+        }
+        .myWhite, .myBlack {
+            width: 110px;
+            height: 39px;
+            height: 37px\9;
+        }
+        .myWhite .z-button-cm,
+        .myBlack .z-button-cm,
+        .myGreen .z-button-cm {
+            height: 31px;
+            color: black;
+        }
+        .myWhite .z-button-cm { 
+            background-image : url(${c:encodeURL('/img/button1p1.png')});
+        }
+        .myBlack .z-button-cm { 
+            background-image : url(${c:encodeURL('/img/button2.png')});
+            color: white;
+        }
+        .myGreen .z-button-cm { 
+            background-image : url(${c:encodeURL('/img/button3.png')});
+        }
+        .z-button-focus .z-button-cm {
+            background-position: 0 -62px                    
+        }
+        .z-button-over .z-button-cm {
+            background-position: 0 -31px
+        }
+        .z-button-clk .z-button-cm {
+            background-position: 0 -93px                    
+        }               
+        </style>
+    
+    
+    
+        <grid id="gridCara" visible="false">
+            <columns>
+                
+                <column label="Instrucciones"/>
+                <column label="Llenado"/>
+                        
+            </columns>
+            <rows>
+                <row>
+                    <label value="Número de parte"/>
+                    <div align="center">
+                    
+                        <label id="labelCa" value="Número de parte" width="150px" />
+                        <separator/>
+                        <label id="caracpart" value=""/>
+                    
+                    </div>
+                    
+                </row>
+                <row >	
+                    
+                    <label value="Escribe la descripción de la característica que deseas añadir."/>
+                    <textbox id="caracDeEntrada" width="200px" height="100px"  value="" multiline="true"/> 
+                </row>
+                <row >	
+                            
+                    <label value="Escribe el número de la característica"/>
+                    <textbox id="caraNumEntrada" width="200px"  value="" /> 
+                </row>
+                <row >
+                    <label value="Escribe el grado de la característica"/>
+                    <textbox id="caraGradEntrada" width="200px"  value="" /> 
+                </row>
+                        	
+                <row >	
+                   
+                    <label value="Escribe las observaciones de la característica"/>
+                    <textbox id="caraObEntrada" width="200px" height="100px" value=""  multiline="true"/> 
+                </row>
+                <row >	
+                    
+                    <label value="Escribe el tipo de la característica"/>
+                    <textbox id="caraTiEntrada" width="280px"  value="" /> 
+                </row>
+                        
+                       
+                        
+            </rows>
+        </grid>
+    
+    
+   
+        <caption id="eventoCara" label="Procesos" visible="true">
+            <div align="center">
+    
+    
+    Arrastra los procesos que afecta la característica.
+    
+                <hlayout>
+                    
+                    
+                    <listbox id="leftf" height="250px" width="200px" fixedLayout="true"
+            onDrop="move(event.dragged)" droppable="true" oddRowSclass="non-odd">
+            
+                    </listbox>
+                    
+                    <separator orient="vertical" spacing="8px" />
+        
+        
+                    <listbox id="rightf" height="250px" width="200px" fixedLayout="true"
+           onDrop="move(event.dragged)" droppable="true" oddRowSclass="non-odd">
+            
+                    </listbox>
+                </hlayout>
+                <div align="center">
+                    <button id="recargarCara" label="Recargar Lista" style=" font-weight:normal ;"  sclass="myBlack" mold="trendy"  />
+                </div>
+                <zscript><![CDATA[
+        void move(Component dragged) {
+            if (self instanceof Listitem) {
+                self.parent.insertBefore(dragged, self);
+            } else {
+                self.appendChild(dragged);
+            }
+            
+          void doDrop(DropEvent event, Component droped) {
+			Component dragged = event.getDragged();
+			droped.getParent().insertBefore(dragged, droped);
+		}  
+        }
+    ]]>
+                </zscript>   
+    
+            </div>
+   
+            <separator height="50px"/>
+    
+   
+   
+
+   
+   
+  
+        </caption>
+       
+   
+   
+        
+        
+        <grid>
+            <columns>
+                <column label=""/>
+                <column label=""/>
+            </columns>
+            <rows>
+                <row>	
+                    <image id="backimg" src="/img/atras1.png" /> 
+                    <div align="right">
+                        <image id="sigimg" src="/img/siguiente1.png"/> 
+                    </div>
+                </row>
+                <row>	
+                    <label value="Atras" />
+                    <div align="right">
+                        <label value="Siguiente"/>
+                    </div>
+                </row>
+            </rows>
+        </grid>
+        
+        
+    </window> 
+</zk>

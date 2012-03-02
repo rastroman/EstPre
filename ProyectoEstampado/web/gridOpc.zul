@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<zk xmlns="http://www.zkoss.org/2005/zul">
+    <window apply="controlador.Controller">
+        <grid id="opcGneral">
+            <columns>
+                <column label="" width="70px"/>
+                <column label="" width="92px"/>
+			
+            </columns>
+            <rows>
+                <row id="asistente">
+                            
+                    <image src="/img/diagram.png" height="60px" width="60px"  />
+                    <label value="Administrador"/>
+                </row>
+                      
+                        
+                <row id="diagrama">
+                            
+                    <image src="/img/asistente.png" height="60px" width="60px"  />
+                    <label value="Diagrama Flujo"/>
+                </row>
+                <row id="amef" > 
+                    <image src="/img/warning.png" height="60px" width="60px"  />
+                    <label value="AMEF"/>
+
+                </row>
+                <row id="control">
+                            
+                    <image src="/img/planControl.png" height="60px" width="55px"  />
+                    <label value="Plan de Control"/>
+                </row>
+                <row id="condiciones">
+                            
+                    <image src="/img/conditions.png" height="60px" width="60px"  />
+                    <label value="Hoja de Condiciones"/>
+                </row>
+                <row id="procesos">
+                            
+                    <image src="/img/hojaProcesos.png" height="60px" width="60px"  />
+                    <label value="Hoja de Procesos"/>
+                </row>
+                <row id="historial">
+                            
+                    <image src="/img/historial.png" height="60px" width="60px"  />
+                    <label value="Historial"/>
+                </row>
+                      
+                            
+                           
+                           
+                        
+                <row id="cerrarSe">
+                            
+                    <image src="/img/logout.png" height="60px" width="60px"  />
+                    <label value="Cerrar Sesión"/>
+                </row>
+                <row id="manySe">
+                            
+                    <div align="center">
+                        <image id="manualImage" src="/img/manual.png" height="60px" width="50px"  />
+                             
+                    </div>
+                    <label value="Manual de Usuario"/>
+                </row>
+            </rows>
+        </grid>
+    </window>
+</zk>

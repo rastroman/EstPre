@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<zk xmlns="http://www.zkoss.org/2005/zul">
+<zk>
+    
+
+<window  id="winHelp"  height="600px" width="800px" title="Documentación" border="normal"  sizable="true"  >
+  <attribute name="onCreate">
+<![CDATA[ 
+ winHelp.doModal();
+ winHelp.setClosable(true);
+]]>
+        </attribute>
+  <iframe style="background-color:transparent" src="/pdf/doc2p2.pdf" width="100%" height="100%"/>
+</window>
+</zk>
+</zk>

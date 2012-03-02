@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<zk xmlns="http://www.zkoss.org/2005/zul">
+<window title="Alta de Modo" id="WModoAsis" apply="controlador.Controller">
+      
+        
+    
+    
+    <grid>
+		<columns>
+			<column label="Instrucciones"/>
+			<column label="Llenado"/>
+		</columns>
+		<rows>
+			<row height="290px">	
+                        <label value="Escribe el modo de falla que deseas dar de alta."/>
+                        <textbox id="modoEntrada" width="280px" height="250px" value="" multiline="true"/> 
+			</row>
+                        <row>	
+                        <label value="Descripción"/>
+                        <textbox id="modoOEntrada" width="280px" height="130px" value="" multiline="true"/> 
+			</row>
+                        
+		</rows>
+	</grid>
+    
+           
+    
+  
+        
+        
+       
+
+   
+       
+   
+   
+        
+        
+        <grid>
+            <columns>
+                <column label=""/>
+                <column label=""/>
+            </columns>
+            <rows>
+                <row>	
+                    <image id="backimg" src="/img/atras1.png" /> 
+                    <div align="right">
+                        <image id="sigimg" src="/img/siguiente1.png"/> 
+                    </div>
+                </row>
+                <row>	
+                    <label value="Atras" />
+                    <div align="right">
+                        <label value="Siguiente"/>
+                    </div>
+                </row>
+            </rows>
+        </grid>
+        
+        
+    </window> 
+</zk>

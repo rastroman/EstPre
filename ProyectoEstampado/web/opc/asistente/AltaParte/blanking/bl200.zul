@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<zk xmlns="http://www.zkoss.org/2005/zul">
+
+
+<grid>
+		<columns>
+			<column label=""/>
+			<column label=""/>
+                        
+		</columns>
+		<rows>
+			<row>	
+                        <label value="Modelo" />
+                        <textbox />
+			</row>
+                        <row>	
+                        <label value="No. de Parte" />
+                        <textbox />
+			</row>
+                        <row>	
+                        <label value="Nombre de Parte" />
+                        <label  />
+			</row>
+                        <row>	
+                        <label value="Revisión" />
+                        <label  />
+			</row>
+                        <row>	
+                        <label value="Nivel de Ingeniería" />
+                        <label  />
+			</row>
+                        <row>	
+                        <label value="Presión de la balanza" />
+                        <label  />
+			</row>
+                        <row>	
+                        <label value="Peso Blanking" />
+                        <label  />
+			</row>
+                        <row>	
+                        <label value="Liberación" />
+                        <label  />
+			</row>
+                        <row>	
+                        <label value="Nombre de Troquel" />
+                        <label  />
+			</row>
+                        <row>	
+                        <label value="Departamento" />
+                        <label  />
+			</row>
+                        <row>	
+                        <label value="Presion de Nivelador Entrada" />
+                        <label  />
+			</row>
+                        <row>	
+                        <label value="Presion de Nivelador Salida" />
+                        <label  />
+			</row>
+                        <row>	
+                        <label value="Nombre de Material" />
+                        <label  />
+			</row>
+                        <row>	
+                        <label value="Espesor" />
+                        <label  />
+			</row>
+                        <row>	
+                        <label value="Ancho de Rollo" />
+                        <label  />
+			</row>
+                        <row>	
+                        <label value="Sujeción de troquel Superior" />
+                        <label  />
+			</row>
+                        <row>	
+                        <label value="Sujeción de troquel Inferior" />
+                        <label  />
+			</row>
+		</rows>
+	</grid>
+
+</zk>

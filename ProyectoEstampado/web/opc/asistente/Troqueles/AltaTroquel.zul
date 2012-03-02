@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+
+<zk xmlns="http://www.zkoss.org/2005/zul">
+<window title="Alta de Troquel" id="WTroquelAsis" apply="controlador.Controller">
+        
+ 
+        
+    <grid>
+		<columns>
+			<column label="Instrucciones"/>
+			<column label="Llenado"/>
+		</columns>
+		<rows>
+			<row>	
+                        <label value="Escribe el nombre del 'Troquel' que deseas dar de alta."/>
+                        <textbox id="troquelEntrada" width="250px" value=""/> 
+			</row>
+                        <row>	
+                        <label value="FR (Dimensión troquel)"/>
+                        <textbox id="dFR" width="250px" value=""/> 
+			</row>
+                        <row>	
+                        <label value="LR (Dimensión troquel)"/>
+                        <textbox id="dLR" width="250px" value=""/> 
+			</row>
+                        <row>	
+                        <label value="H (Dimensión troquel)"/>
+                        <textbox id="dH" width="250px" value=""/> 
+			</row>
+                        <row>
+                        <label value="Peso superior"/>
+                        <textbox id="PeSup" width="250px" value=""/> 
+			</row>
+                        <row>
+                        <label value="Peso total"/>
+                        <textbox id="PeTot" width="250px" value=""/> 
+			</row>
+                        <row>
+                        <label value="Piezas por golpe"/>
+                        <textbox id="PGolpe" width="250px" value=""/> 
+			</row>
+                        <row>
+                        <label value="Descripción"/>
+                        <textbox id="descTEntrada" width="250px" value=""/> 
+			</row>
+		</rows>
+	</grid>
+    
+       <grid>
+            <columns>
+                <column label=""/>
+                <column label=""/>
+            </columns>
+            <rows>
+                <row>	
+                    <image id="backimg" src="/img/atras1.png" /> 
+                    <div align="right">
+                        <image id="sigimg" src="/img/siguiente1.png"/> 
+                    </div>
+                </row>
+                <row>	
+                    <label value="Atras" />
+                    <div align="right">
+                        <label value="Siguiente"/>
+                    </div>
+                </row>
+            </rows>
+        </grid>
+        
+        
+    </window> 
+</zk>

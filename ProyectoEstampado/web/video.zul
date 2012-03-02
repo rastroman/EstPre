@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<zk xmlns="http://www.zkoss.org/2005/zul">
+
+    
+
+<window  id="winHelp"  height="285px" width="320px" title="Video" border="normal"  sizable="true"  >
+  <attribute name="onCreate">
+<![CDATA[ 
+ winHelp.doModal();
+ winHelp.setClosable(true);
+]]>
+        </attribute>
+  <html><![CDATA[
+ <object id="MediaPlayer" width=320 height=286 classid="CLSID:22D6f312-B0F6-11D0-94AB-0080C74C7E95" standby="Loading Windows Media Player components..." type="application/x-oleobject" codebase="http://activex.microsoft.com/activex/controls/mplayer/en/nsmp2inf.cab#Version=6,4,7,1112">
+
+<param name="filename" value="Inicio">
+<param name="Showcontrols" value="False">
+<param name="autoStart" value="True">
+<param name="wmode" value="transparent">
+
+<embed type="application/x-mplayer2" src="C:\Documents and Settings\alejandro.montes\My Documents\NetBeansProjects\ProyectoEstampado\web\video\inicio.wmv" name="MediaPlayer" autoStart="True" wmode="transparent" width="320" height="286" ></embed>
+
+</object>
+
+]]>
+</html>
+
+</window>
+
+</zk>
+
+
+
+
+
+
+
+
+
+
+

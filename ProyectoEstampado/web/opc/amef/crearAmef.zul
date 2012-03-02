@@ -1,0 +1,258 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<zk xmlns="http://www.zkoss.org/2005/zul">
+    <window id="menuDiag" title="Diagrama de Procesos" apply="controlador.CtrlDiagram">
+        <grid>                                                
+            <columns>
+                <column label=""/>
+                <column label=""/>
+                <column label=""/>
+                <column width="50px" label="" />
+                <column width="80px" label="" />
+                        
+            </columns>
+            <rows>
+                <row>	
+                    <label value="Numero de parte" />
+                    <textbox id="parte" />
+                    <div class="btndiv">
+                    <button label="Coincidencias"  style=" font-weight:normal ;" width="110px" id="boton" sclass="myWhite" mold="trendy"/>
+                    </div>
+                    <image id="CP"  align="left" src="/img/question.png"  />
+                    <label  id="CP2" />
+                </row>
+            </rows>
+        </grid>
+       
+        <listbox id="sugerencia" visible="false" >
+            <listhead>
+                <listheader label="Número"/>
+                <listheader label="Nombre"/>
+                <listheader label="Código Amef"/>
+                                                    
+							
+            </listhead>
+            <listitem>
+						
+            </listitem>
+						
+        </listbox> 
+        <attribute name="onClick">{
+        import conexion.ConnSql;	
+        conexion.ConnSql tipoUsuario = new ConnSql();
+        String us = comodinNombre.getValue();
+        tipo = tipoUsuario.traerTipo(us);
+        
+       if(tipo == 1 ){
+        
+       }
+       
+       else {
+       starter.setVisible(false);
+       deshab.setValue("Sin Privilegios de edición");
+       }
+        
+        }</attribute>
+
+
+
+        <label id="numeroParte" visible="false"/> 
+
+ 
+        <label id="titl" />
+        <grid id="guardaImg" visible="false">
+            <columns>
+                <column label=""/>
+                <column label="Cargar"/>
+                <column label="Descargar"/>
+                        
+            </columns>
+            <rows>
+                <row>	
+                        
+                    <label value="Edición Permitida"  id="deshab"/> 
+                    
+                    <button label="Actualizar Diagrama" id="starter" upload="true" >
+                        <attribute name="onUpload">{
+                import java.io.InputStream;
+                import java.io.OutputStream;
+                import java.io.File;
+                import java.io.FileOutputStream;
+                import controlador.CtrlDiagram;
+		import conexion.ConnSql;	
+                org.zkoss.util.media.Media media = event.getMedia();
+                   try {
+                     final Window win = (Window) Executions.createComponents(
+                                "/login.zul", null, null);
+                                
+                        Window windo = new Window();
+                        Textbox nom = new Textbox();
+                        Textbox pss = new Textbox();
+                        Textbox nombr;
+                        Textbox passwor;
+                        
+                        
+                        win.getChildren().clear();
+
+                        windo.getChildren().clear();
+                        Grid gr = new Grid();
+                        gr.getChildren().clear();
+
+                        windo.setTitle("Verificación para Historial");
+                        win.appendChild(windo);
+
+                        windo.setWidth("400px");
+                        Columns colp = new Columns();
+                        colp.getChildren().clear();
+                        Column nombre = new Column();
+                        nombre.getChildren().clear();
+                        Column password = new Column();
+                        password.getChildren().clear();
+                        Rows rowss = new Rows();
+                        rowss.getChildren().clear();
+                        Row ro = new Row();
+                        rowss.appendChild(ro);
+                        colp.appendChild(nombre);
+                        colp.appendChild(password);
+                        gr.appendChild(colp);
+                        gr.appendChild(rowss);
+                        windo.appendChild(gr);
+                        nombre.appendChild(new Label("Nombre"));
+                        password.appendChild(new Label("Password"));
+
+                        ro.appendChild(nom);
+                        ro.appendChild(pss);
+
+                        nom.setWidth("240px");
+                        pss.setWidth("240px");
+                        pss.setType("password");
+
+                        Button btni = new Button("Verificar");
+                        windo.appendChild(btni);
+                        btni.addEventListener(Events.ON_CLICK, new org.zkoss.zk.ui.event.EventListener() {
+
+                            public void onEvent(Event event) throws Exception {
+                                boolean x = false;
+                                String n = nom.getValue();
+                                conexion.ConnSql conectar = new ConnSql();                                           int idUs = conectar.obtenerIdUsuario(n);
+                                int idUs = conectar.obtenerIdUsuario(nom.getValue());
+
+                                String p = pss.getValue();
+                                String parte = numeroParte.getValue();
+
+                               
+                                x = conectar.inicioLog(n, p);
+                                
+                                if (x == true) {
+                                    guardaImg.setVisible(true);
+                                    windo.onClose();
+                                    java.util.Date fecha = new java.util.Date();
+                                    fecha.getDate();
+                                    
+                                    conectar.historial(idUs, parte, "Diagrama de procesos", fecha);
+                                                                        
+                                     try{
+                                     
+                                     if (media != null) {
+                              
+			if (media instanceof org.zkoss.image.Image) {
+				org.zkoss.zul.Image image = new org.zkoss.zul.Image();
+				image.setContent(media);
+				
+                                
+                            String dire = numeroParte.getValue()+".jpg";
+                            dire=dire.replace('/',' '); 
+                            dire.replaceAll(" ", "");
+
+                             
+                             
+                             
+             OutputStream outputStream = new FileOutputStream(new File("C:/Documents and Settings/alejandro.montes/My Documents/NetBeansProjects/ProyectoEstampado/web/img/NumeroParte/" + dire));
+            InputStream inputStream = media.getStreamData();
+            byte[] buffer = new byte[1024];
+            for (int count; (count = inputStream.read(buffer)) != -1;) {
+                outputStream.write(buffer, 0, count);
+            }
+            
+           
+            File aud = new File("C:/Documents and Settings/alejandro.montes/My Documents/NetBeansProjects/ProyectoEstampado/web/img/NumeroParte/"  + dire);
+            String filepath = aud.getAbsolutePath();
+            alert(""+filepath); 
+            
+            
+            outputStream.flush();
+            outputStream.close();
+            inputStream.close();
+                               pics.getChildren().clear();
+                                
+                                image.setParent(pics);
+                                
+                                
+			} else {
+				Messagebox.show("No es una imagen: "+media, "Error", Messagebox.OK, Messagebox.ERROR);
+				
+			}
+
+
+            }
+            } catch (Exception ex) {
+                Messagebox.show("Error Interno (1), Consulte al programador", "Information", Messagebox.OK, Messagebox.INFORMATION);
+
+            }
+            
+            
+
+                                } else {
+                                    Messagebox.show("Error de Verificación", "Validación", Messagebox.OK, Messagebox.INFORMATION);
+                                    windo.onClose();
+                                    sugerencia.setSelectedItem(null);
+
+                                }
+
+                            }
+                        });
+
+
+
+                        windo.setClosable(true);
+                        windo.doModal();
+
+                        pics.getChildren().clear();
+                        guardaImg.setVisible(false);
+                        String b = sugerencia.getSelectedItem().getLabel().toString();
+                        numeroParte.setValue(b);
+                        numeroParte.setVisible(false);
+
+            } catch (Exception ex) {
+                Messagebox.show("Error Interno (1), Consulte al programador", "Information", Messagebox.OK, Messagebox.INFORMATION);
+
+            }
+              
+                        
+                       
+		}
+                
+                        </attribute>
+                    </button>
+        
+      
+                    <button label="Descargar Diagrama">
+                        <attribute name="onClick">
+                            String dire = numeroParte.getValue()+".jpg";
+                            dire=dire.replace('/',' '); 
+                            dire.replaceAll(" ", "");
+                            
+                Filedownload.save("/img/NumeroParte/"+ dire, null);
+
+                        </attribute>
+                    </button>
+                </row>
+            </rows>
+        </grid>
+      
+        <vbox id="pics" />
+        <include id="verif" /> 
+    </window>
+
+</zk>

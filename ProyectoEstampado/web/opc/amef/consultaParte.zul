@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<zk xmlns="http://www.zkoss.org/2005/zul">
+
+<window apply="controlador.Controller"  >
+    
+
+          <grid id="gridMasSug">
+		<columns>
+			<column label="Modificar"/>
+			<column label="Mas detalles"/>
+		</columns>
+		<rows>
+			<row>	
+                        <button id="b1" />
+                        <button id="b2"/>
+                        </row>
+		</rows>
+	</grid>
+        
+</window>
+
+
+</zk>

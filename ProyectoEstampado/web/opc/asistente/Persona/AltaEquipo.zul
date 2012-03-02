@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<zk xmlns="http://www.zkoss.org/2005/zul">
+<window title="Alta de Equipo" id="WEquipoAsis" apply="controlador.Controller">
+
+    <grid>
+		<columns>
+			<column label="Instrucciones"/>
+			<column label="Llenado"/>
+		</columns>
+		<rows>
+			<row>	
+                        <label value="Escribe el nombre del equipo que deseas dar de alta."/>
+                        <textbox id="equipoEntrada" width="250px" value=""/> 
+			</row>
+                       <row>	
+                        <label value="Escribe una descripción del equipo."/>
+                        <textbox id="equipoDesEntrada" width="250px" value=""/> 
+			</row>
+                        
+                        
+                        
+		</rows>
+	</grid>
+    
+        <grid>
+            <columns>
+                <column label=""/>
+                <column label=""/>
+            </columns>
+            <rows>
+                <row>	
+                    <image id="backimg" src="/img/atras1.png" /> 
+                    <div align="right">
+                        <image id="sigimg" src="/img/siguiente1.png"/> 
+                    </div>
+                </row>
+                <row>	
+                    <label value="Atras" />
+                    <div align="right">
+                        <label value="Siguiente"/>
+                    </div>
+                </row>
+            </rows>
+        </grid>
+        
+        <caption id="eventoCara" label="Personas" >
+            <div align="center">
+    
+    
+    Arrastra las personas para que puedan formar parte del equipo.
+    
+                <hlayout>
+                    
+                    
+                    <listbox id="leftf" height="250px" width="200px" fixedLayout="true"
+            onDrop="move(event.dragged)" droppable="true" oddRowSclass="non-odd">
+            
+                    </listbox>
+                    
+                    <separator orient="vertical" spacing="8px" />
+        
+        
+                    <listbox id="rightf" height="250px" width="200px" fixedLayout="true"
+           onDrop="move(event.dragged)" droppable="true" oddRowSclass="non-odd">
+            
+            
+           
+            
+                    </listbox>
+                </hlayout>
+                <div align="center">
+                    <button id="recargarPersonas" label="Recargar Lista" style=" font-weight:normal ;"  sclass="myBlack" mold="trendy"  />
+                </div>
+                <zscript><![CDATA[
+        void move(Component dragged) {
+            if (self instanceof Listitem) {
+                self.parent.insertBefore(dragged, self);
+            } else {
+                self.appendChild(dragged);
+            }
+            
+          void doDrop(DropEvent event, Component droped) {
+			Component dragged = event.getDragged();
+			droped.getParent().insertBefore(dragged, droped);
+		}  
+        }
+    ]]>
+                </zscript>   
+    
+            </div>
+   
+            <separator height="50px"/>
+    
+   
+   
+
+   
+   
+  
+        </caption>
+    </window> 
+</zk>

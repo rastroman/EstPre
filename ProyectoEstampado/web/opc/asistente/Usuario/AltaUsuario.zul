@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<zk xmlns="http://www.zkoss.org/2005/zul">
+<window title="Alta Usuario" id="WUsuarioAsis" apply="controlador.Controller">
+      
+        
+    
+    
+    <grid>
+		<columns>
+			<column label="Instrucciones"/>
+			<column label="Llenado"/>
+		</columns>
+		<rows>
+			<row >	
+                        <label value="Escribe el nombre de usuario."/>
+                        <textbox id="usuarioEntrada" width="280px"  value="" /> 
+			</row>
+                        <row>	
+                        <label value="Asigna el tipo de Usuario que deseas"/>
+                        <listbox mold="select" hflex="1" id="tipoUsuario">
+                        <listitem label="Administrador"/>
+                        <listitem label="Consultor" selected="true"/>
+                        <listitem label="Visitante" />
+                        </listbox>
+                        </row>
+                        <row >	
+                        <label value="Contraseña" />
+                        <textbox id="passUsuarioEnt" type="password" width="280px" value="" /> 
+			</row>
+                        
+		</rows>
+	</grid>
+    
+           
+    
+  
+        
+        
+       
+
+   
+       
+   
+   
+        
+        
+        <grid>
+            <columns>
+                <column label=""/>
+                <column label=""/>
+            </columns>
+            <rows>
+                <row>	
+                    <image id="backimg" src="/img/atras1.png" /> 
+                    <div align="right">
+                        <image id="sigimg" src="/img/siguiente1.png"/> 
+                    </div>
+                </row>
+                <row>	
+                    <label value="Atras" />
+                    <div align="right">
+                        <label value="Siguiente"/>
+                    </div>
+                </row>
+            </rows>
+        </grid>
+        
+        
+    </window> 
+</zk>

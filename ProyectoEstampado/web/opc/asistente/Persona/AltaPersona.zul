@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<zk xmlns="http://www.zkoss.org/2005/zul">
+    <window title="Alta de Persona" id="WPersonaAsis" apply="controlador.Controller">
+      
+        
+    
+    
+        <grid>
+		<columns>
+            
+            <column label="Instrucciones"/>
+            <column label="Llenado"/>
+                        
+        </columns>
+        <rows>
+           
+            <row>	
+                
+                <label value="Escribe el nombre de la persona que deseas dar de alta."/>
+                <textbox id="personaEntrada" width="250px" value=""/> 
+            </row>
+            <row>
+               
+                <label value="Escribe el nombre Abreviado (Ejemplo G. Santos)."/>
+                <textbox id="personaEntradaAbr" width="250px" value=""/> 
+            </row>
+             <row >	
+                
+                <label value="Selecciona el departamento al que pertenece dicha persona."/>
+                <div align="center">
+                    <button id="accionDepa" label="Departamento"  style=" font-weight:normal ;" sclass="myWhite" mold="trendy" width="110px" height="39px"/>    
+                    <separator/>
+                    <label id="labelCa" value="Selecciona el departamento" width="150px" visible="false"/>
+                    <separator/>
+                    <listbox  mold="select" hflex="1" id="partedepa" visible="false">
+                    </listbox>
+                    
+                </div>
+            </row>
+                        
+                        
+        </rows>
+    </grid>
+    
+           
+    
+  
+        
+        
+       
+
+   
+       
+   
+   
+        
+        
+    <grid>
+        <columns>
+            <column label=""/>
+            <column label=""/>
+        </columns>
+        <rows>
+            <row>	
+                <image id="backimg" src="/img/atras1.png" /> 
+                <div align="right">
+                    <image id="sigimg" src="/img/siguiente1.png"/> 
+                </div>
+            </row>
+            <row>	
+                <label value="Atras" />
+                <div align="right">
+                    <label value="Siguiente"/>
+                </div>
+            </row>
+        </rows>
+    </grid>
+        
+        
+</window> 
+</zk>

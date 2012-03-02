@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<zk xmlns="http://www.zkoss.org/2005/zul">
+
+<script><![CDATA[
+	var currentmillis;
+	var fid;
+	
+function updateClock(){
+	  currentmillis = currentmillis + 1000;
+	  var currentTime = new Date (currentmillis);
+	
+	  var currentHours = currentTime.getHours ( );
+	  var currentMinutes = currentTime.getMinutes ( );
+	  var currentSeconds = currentTime.getSeconds ( );							
+	 
+	  currentMinutes = ( currentMinutes < 10 ? "0" : "" ) + currentMinutes;
+	  currentSeconds = ( currentSeconds < 10 ? "0" : "" ) + currentSeconds;							
+	  
+	  var timeOfDay = ( currentHours < 12 ) ? "AM " : "PM ";							
+	
+	  currentHours = ( currentHours > 12 ) ? currentHours - 12 : currentHours;	 
+	  currentHours = ( currentHours == 0 ) ? 12 : currentHours;							
+	
+	  var currentTimeString = currentHours + ":" + currentMinutes + ":" + currentSeconds + " " + timeOfDay;							
+	
+	  document.getElementById(fid).value = currentTimeString;
+	  setTimeout("updateClock()", 1000 );
+	  }
+	  
+	  function callClock(cm, ffid){
+	  	currentmillis = cm;
+	  	fid = ffid;
+	  	updateClock();	  	
+	  } 
+]]></script>
+
+<textbox id="now"	style="font-weight:bold; font-size:12pt; color:blue; font-family:arial; float: right; text-align: right;" readonly="true" width="6.5em" tooltiptext="Server time (almost)" />
+
+<!-- just before the /zk closing tag -->
+<zscript><![CDATA[
+		Clients.evalJavaScript("callClock(" + java.util.Calendar.getInstance().getTimeInMillis() + ", \"" + now.getUuid() + "\")");
+]]></zscript>
+</zk>
+
+
+
+

@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<zk xmlns="http://www.zkoss.org/2005/zul">
+    <window title="Alta de Proceso" id="WProcesoAsis" apply="controlador.Controller">
+      
+        
+    
+    
+        <grid>
+            <columns>
+                <column label="Instrucciones"/>
+                <column label="Llenado"/>
+            </columns>
+            <rows>
+                <row>	
+                    <label value="Escribe el nombre del proceso que deseas dar de alta."/>
+                    <textbox id="procesoEntrada" width="250px" value=""/> 
+                </row>
+                <row>	
+                    <label value="Escribe una abreviación del nombre del proceso."/>
+                    <textbox id="procesoAbrEntrada" width="250px" value=""/> 
+                </row>
+                <row>	
+                    <label value="Escribe una pequeña descripción del proceso."/>
+                    <textbox id="procesoOEntrada" width="250px" value=""/> 
+                </row>
+                <row>	
+                    <label value="Asigne un tipo al proceso."/>
+                    <div align="center">
+                        <button id="accionTipo" label="" sclass="myWhite" mold="trendy" width="110px"/>    
+                        <separator/>
+                        <label id="labelCa" value="Selecciona el tipo" width="150px" visible="false"/>
+                        <separator/>
+                        <listbox  mold="select" hflex="1" id="procesoTipo" visible="false" >
+                        </listbox>
+                        
+                    
+                    </div>
+                </row>
+                <row id="ocult" visible="false" >	
+                    <label value="Selecciona una prensa"/>
+                    <div align="center">
+                        <button id="accionMaquina" label="" sclass="myWhite" mold="trendy" width="110px"/>    
+                        <separator/>
+                        <label id="labelCas" value="Selecciona la máquina" width="150px" visible="false"/>
+                        <separator/>
+                        <listbox  mold="select" hflex="1" id="procesoMaquina" visible="false" >
+                        </listbox>
+                    
+                    </div>
+                </row>
+                        
+            </rows>
+        </grid>
+    
+           
+    
+  
+        
+        
+       
+
+   
+       
+   
+   
+        
+        
+        <grid>
+            <columns>
+                <column label=""/>
+                <column label=""/>
+            </columns>
+            <rows>
+                <row>	
+                    <image id="backimg" src="/img/atras1.png" /> 
+                    <div align="right">
+                        <image id="sigimg" src="/img/siguiente1.png"/> 
+                    </div>
+                </row>
+                <row>	
+                    <label value="Atras" />
+                    <div align="right">
+                        <label value="Siguiente"/>
+                    </div>
+                </row>
+            </rows>
+        </grid>
+        
+        
+    </window> 
+</zk>

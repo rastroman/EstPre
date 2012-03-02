@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<zk xmlns="http://www.zkoss.org/2005/zul">
+<window title="Procesos" apply="controlador.Controller" id="fasesAsis" >
+     <style>
+        .btndiv .z-button-cr, .btndiv .z-button-cl, 
+        .btndiv .z-button-bl, .btndiv .z-button-bm,
+        .btndiv .z-button-br, .btndiv .z-button-tl,
+        .btndiv .z-button-tm, .btndiv .z-button-tr {
+            background-image: none;
+        }
+        .btndiv .z-button-cm {
+            background : transparent url('') no-repeat 0 0 ;
+        }
+        .btndiv table {
+            width: 100%;
+            height: 100%;
+        }
+        .myWhite, .myBlack {
+            width: 110px;
+            height: 39px;
+            height: 37px\9;
+        }
+        .myWhite .z-button-cm,
+        .myBlack .z-button-cm,
+        .myGreen .z-button-cm {
+            height: 31px;
+            color: black;
+        }
+        .myWhite .z-button-cm { 
+            background-image : url(${c:encodeURL('/img/button1p1.png')});
+        }
+        .myBlack .z-button-cm { 
+            background-image : url(${c:encodeURL('/img/button2.png')});
+            color: white;
+        }
+        .myGreen .z-button-cm { 
+            background-image : url(${c:encodeURL('/img/button3.png')});
+        }
+        .z-button-focus .z-button-cm {
+            background-position: 0 -62px                    
+        }
+        .z-button-over .z-button-cm {
+            background-position: 0 -31px
+        }
+        .z-button-clk .z-button-cm {
+            background-position: 0 -93px                    
+        }               
+        </style>
+        
+        
+    <separator height="10x" />
+    Recuerda que para obtener mas información de cada proceso, puedes dar clic 
+    en el item para obtener su descripción general.
+    
+    
+    <separator height="10x" />
+   
+    Si la lista es demasiado grande y no puedes arrastrar los items, intenta 
+    arrastrarlos hacia la barra de desplazamiento (ScrollBar)
+   
+   <caption label="Procesos">
+       <div align="center">
+    
+    
+    Arrastra en el orden deseado los procesos que deseas anexar a tu parte.
+    
+ <hlayout>
+     
+        
+        <listbox id="leftf" height="250px" width="200px" fixedLayout="true"
+            onDrop="move(event.dragged)" droppable="true" oddRowSclass="non-odd">
+            
+        </listbox>
+        <separator orient="vertical" spacing="8px" />
+        
+        
+        <listbox id="rightf" height="250px" width="200px" fixedLayout="true"
+           onDrop="move(event.dragged)" droppable="true" oddRowSclass="non-odd">
+            
+            
+           
+            
+        </listbox>
+    </hlayout>
+    <div align="center">
+    <button id="recargarFas" label="Recargar Lista"   style=" font-weight:normal ;"  sclass="myBlack" mold="trendy" />
+    </div>
+    <zscript><![CDATA[
+        void move(Component dragged) {
+            if (self instanceof Listitem) {
+                self.parent.insertBefore(dragged, self);
+            } else {
+                self.appendChild(dragged);
+            }
+            
+          void doDrop(DropEvent event, Component droped) {
+			Component dragged = event.getDragged();
+			droped.getParent().insertBefore(dragged, droped);
+		}  
+        }
+    ]]></zscript>   
+    
+        </div>
+   
+    <separator height="50px"/>
+    
+   
+   
+
+   
+   
+  
+    </caption>
+    <grid>
+		<columns>
+			<column label=""/>
+			<column label=""/>
+		</columns>
+		<rows>
+			<row>	
+                        <image id="backimg" src="/img/atras1.png" /> 
+                        <div align="right">
+                        <image id="sigimg" src="/img/siguiente1.png"/> 
+                        </div>
+			</row>
+                        <row>	
+                        <label value="Atras" />
+                        <div align="right">
+                        <label value="Siguiente"/>
+                        </div>
+			</row>
+		</rows>
+	</grid>
+</window>   
+
+</zk>

@@ -1,0 +1,701 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<zk xmlns="http://www.zkoss.org/2005/zul">
+    <window title="Asistente para la creación de un número de parte "  id="WParteAsis" apply="controlador.Controller"  border="normal" style="background-color: #000000;">
+        <separator height="10px" />
+        <div align="center">
+            <grid width="520px">
+                <columns>
+                    <column label="Instrucciones" width="250px"/>
+                    <column label="Llenado" width="270px"/>
+                </columns>
+                <rows >
+                    <row>	
+                        <label value="Escribe el nombre de la pieza."/>
+                        <div align="center">
+                            <textbox id="nombreParEntrada" width="250px" value=""/> 
+                        </div>
+                    </row>
+                    <row >	
+                        <label value="Escribe el número de la pieza." />
+                        <div align="center">
+                            <textbox id="numeroParEntrada" width="250px" value=""/> 
+                        </div>
+                    </row>
+                    <row >	
+                        <label value="Escribe el código del AMEF de la pieza."/>
+                        <div align="center">
+                            <textbox id="amefEntrada" width="250px" value=""/>
+                        </div>
+                    </row>
+                    <row>	
+                        <label value="Selecciona el nivel de Ingeniería"/>
+                        <div align="center">
+                            <button id="reuNivI"   width="110px" height="39px" style=" font-weight:normal ;" label="Elegir" sclass="myWhite" mold="trendy" /> 
+                            <listbox mold="select" width="250px" hflex="1" id="nivIngDisp" visible="false"/>
+                        </div>
+                    </row>
+                    <row>	
+                        <label value="Selecciona el modelo de la parte"/>
+                        <div align="center">
+                            <button id="modeloPar"  width="110px" height="39px" style=" font-weight:normal ;"  label="Elegir" sclass="myWhite" mold="trendy" /> 
+                            <listbox mold="select"  width="250px" hflex="1" id="ModeDisp" visible="false"/>
+                        </div>
+                    </row>         
+                </rows>
+            </grid>
+        </div>
+        <separator height="10px" />
+        <grid>
+            <columns>
+                <column label=""/>
+                <column label=""/>
+            </columns>
+            <rows>
+                <row>	
+                    <image id="backimg" src="/img/atras1.png" /> 
+                    <div align="right">
+                        <image id="sigimg" src="/img/siguiente1.png"/> 
+                    </div>
+                </row>
+                <row>	
+                    <label value="Atras" />
+                    <div align="right">
+                        <label value="Siguiente"/>
+                    </div>
+                </row>
+            </rows>
+        </grid>
+    </window> 
+    <window height="1300px" title="Procesos" apply="controlador.Controller" id="fasesAsis" visible="false" border="normal" style="background-color: #000000;" >
+        <div align="center">
+            <button id="recargarFas" label="Iniciar"   style=" font-weight:normal ;"  sclass="myBlack" mold="trendy" />
+        </div>
+        <grid>
+            <columns>
+                <column label="Procesos"/>
+                <column label=" "/> 
+            </columns>
+            <rows >
+                <row>	
+                    <cell rowspan="8" align="center">
+                        <listbox id="leftf" height="840px" width="280px" fixedLayout="true" onDrop="move(event.dragged)" droppable="true" oddRowSclass="non-odd">
+                            <listhead>
+                                <listheader label="Procesos Anexados"/>
+                            </listhead>
+                        </listbox>
+                    </cell>
+                </row>
+                <row align="center">	
+                                              
+                    <listbox id="rightf" height="120px" width="290px" fixedLayout="true" onDrop="move(event.dragged)" droppable="true" oddRowSclass="non-odd">
+                        <listhead>
+                            <listheader label="Entradas y Almacén"/>
+                        </listhead>
+                    </listbox> 
+                          
+                          
+                </row>
+                <row align="center">	
+                                              
+                    <listbox id="regresoInsp" height="120px" width="290px" fixedLayout="true" onDrop="move(event.dragged)" droppable="true" oddRowSclass="non-odd">
+                        <listhead>
+                            <listheader  label="Inspecciones"/>
+                        </listhead>			
+                    </listbox>     
+                </row >
+                <row align="center">	
+                    <listbox id="regresoTrans" height="120px" width="290px" fixedLayout="true" onDrop="move(event.dragged)" droppable="true" oddRowSclass="non-odd">
+                        <listhead>
+                            <listheader label="Transporte"/>
+                        </listhead>
+                    </listbox>
+                </row>
+                <row align="center">	
+                    <listbox  id="regresoPrepara" height="120px" width="290px" fixedLayout="true" onDrop="move(event.dragged)" droppable="true" oddRowSclass="non-odd">
+                        <listhead>
+                            <listheader label="Preparación"/>
+                        </listhead>
+                    </listbox>                            
+                </row>
+                <row align="center">	
+                    <listbox  height="120px" id="regresoBlanking" width="290px" fixedLayout="true" onDrop="move(event.dragged)" droppable="true" oddRowSclass="non-odd">
+                        <listhead>
+                            <listheader label="Blanking"/>
+                        </listhead>
+                    </listbox>                            
+                </row>
+                <row align="center">	
+                    <listbox  id="regresoTandem" height="120px" width="290px" fixedLayout="true" onDrop="move(event.dragged)" droppable="true" oddRowSclass="non-odd">
+                        <listhead>
+                            <listheader label="Tandem"/>
+                        </listhead>
+                    </listbox>                            
+                </row>
+                <row align="center">	
+                    <listbox id="regresoTransfer" height="120px" width="290px" fixedLayout="true" onDrop="move(event.dragged)" droppable="true" oddRowSclass="non-odd">
+                        <listhead>
+                            <listheader label="Transfer"/>
+                        </listhead>
+                    </listbox> 
+                </row>
+            </rows>
+        </grid>        
+                
+                
+        
+        <zscript><![CDATA[
+        void move(Component dragged) {
+            if (self instanceof Listitem) {
+                self.parent.insertBefore(dragged, self);
+            } else {
+                self.appendChild(dragged);
+            }
+            
+          void doDrop(DropEvent event, Component droped) {
+			Component dragged = event.getDragged();
+			droped.getParent().insertBefore(dragged, droped);
+		}  
+        }
+    ]]>
+        </zscript>   
+        <separator height="50px"/>
+        <grid>
+            <columns>
+                <column label=""/>
+                <column label=""/>
+            </columns>
+            <rows>
+                <row>	
+                    <image id="backimg" src="/img/atras1.png" /> 
+                    <div align="right">
+                        <image id="sigimg" src="/img/siguiente1.png"/> 
+                    </div>
+                </row>
+                <row>	
+                    <label value="Atras" />
+                    <div align="right">
+                        <label value="Siguiente"/>
+                    </div>
+                </row>
+            </rows>
+        </grid>
+    </window> 
+    
+    <window height="1000px" hflex="true" title="Alta Características" id="WCaracAsistente" apply="controlador.Controller" visible="false"   border="normal" style="background-color: #848484" >    
+        <grid id="gridCara" visible="false">
+            <columns>
+                
+                <column label="Instrucciones"/>
+                <column label="Llenado"/>                  
+            </columns>
+            <rows>
+                <row>
+                    <label value="Número de parte"/>
+                    <div align="center"> 
+                        <label id="caracpart" value=""/>
+                    </div>
+                </row>
+                <row>	
+                    <label value="Escribe la descripción de la característica que deseas añadir."/>
+                    <div align="center">
+                        <textbox id="caracDeEntrada" width="200px" height="100px"  value="" multiline="true"/> 
+                    </div>
+                </row>
+                <row>	  
+                    <label value="Escribe el número de la característica"/>
+                    <div align="center">
+                        <textbox id="caraNumEntrada" width="200px"  value="" /> 
+                    </div>
+                </row>
+                <row >
+                    <label value="Escribe el grado de la característica"/>
+                    <div align="center">
+                        <textbox id="caraGradEntrada" width="200px"  value="" /> 
+                    </div>
+                </row>
+                <row>	
+                    <label value="Escribe las observaciones de la característica"/>
+                    <div align="center">
+                        <textbox id="caraObEntrada" width="200px" height="100px" value=""  multiline="true"/> 
+                    </div>
+                </row>
+                <row>	
+                    <label value="Escribe el tipo de la característica"/>
+                    <div align="center">
+                        <textbox id="caraTiEntrada" width="200px"  value="" /> 
+                    </div>
+                </row>  
+            </rows>
+        </grid>
+        <caption id="eventoCara" label="Procesos" visible="true">
+            <div align="center">
+    Arrastra los procesos que afecta la característica.
+                <hlayout>
+                    <listbox id="left" height="250px" width="200px" fixedLayout="true"
+            onDrop="move(event.dragged)" droppable="true" oddRowSclass="non-odd">
+                    </listbox>
+                    <separator orient="vertical" spacing="8px" />
+                    <listbox id="right" height="250px" width="200px" fixedLayout="true"
+           onDrop="move(event.dragged)" droppable="true" oddRowSclass="non-odd">
+                    </listbox>
+                </hlayout>
+                <div align="center">
+                    <button id="recargarCara" label="Recargar Lista" style=" font-weight:normal ;"  sclass="myBlack" mold="trendy"  />
+                </div>
+                <zscript><![CDATA[
+        void move(Component dragged) {
+            if (self instanceof Listitem) {
+                self.parent.insertBefore(dragged, self);
+            } else {
+                self.appendChild(dragged);
+            }
+            
+          void doDrop(DropEvent event, Component droped) {
+			Component dragged = event.getDragged();
+			droped.getParent().insertBefore(dragged, droped);
+		}  
+        }
+    ]]>
+                </zscript>   
+    
+            </div>
+   
+            <separator height="50px"/>
+    
+  
+        </caption>
+        <grid>
+            <columns>
+                <column label=""/>
+                <column label=""/>
+            </columns>
+            <rows>
+                <row>	
+                    <image id="backimg" src="/img/atras1.png" /> 
+                    <div align="right">
+                        <image id="sigimg" src="/img/siguiente1.png"/> 
+                    </div>
+                </row>
+                <row>	
+                    <label value="Atras" />
+                    <div align="right">
+                        <label value="Siguiente"/>
+                    </div>
+                </row>
+            </rows>
+        </grid>
+    </window> 
+    
+    <window height="1300px" title="Revisiones" apply="controlador.Controller" id="RevisionesAsis" visible="false"  border="normal" style="background-color: #000000;">     
+        <grid id="revisiones" >
+            <columns>
+                <column label="Revisiónes Realizadas"/>
+            </columns>
+            <rows>                
+                <row>	
+                    <listbox id="revRealizadas" visible="false"  height="250px" >
+                        <listhead>
+                            <listheader label="Rev" width="80px" />
+                            <listheader label="Fecha" />
+                            <listheader label="Motivo" width="270px" height="50px"/>
+                            <listheader label="Ing." />
+                            <listheader label="Asg.Cal." />
+                            <listheader label="Producc." />
+                        </listhead>             
+                    </listbox>
+                </row>
+                <row>
+                    <label value="Revisión y fecha"  />
+                </row>
+                <row>
+                    <div align="center">
+                        <textbox value="" width="550px" id="revText"/>
+                        <datebox id="fechaRev" width="100px" format="MM/dd/yyyy" />
+                    </div>
+                </row>
+                <row>
+                    <label value="Motivo" />
+                </row>
+                <row align="center">
+                    <textbox value="" id="motivoRe" width="650px" height="100px" multiline="true"/>
+                </row>
+                <row id="nivRow1" visible="false">
+                    <label value="Ingeniería"  />
+                </row>
+                <row id="nivRow2" visible="false">
+                    <listbox mold="select"  id="ingenieria" hflex="1"  >
+                    </listbox>
+                </row>
+                <row id="nivRow3" visible="false">
+                    <label value="Aseguramiento de Calidad" />
+                </row>
+                <row id="nivRow4" visible="false">
+                    <listbox mold="select"  id="asegCalid" hflex="1"  >
+                    </listbox>
+                </row>
+                <row id="nivRow5" visible="false">
+                    <label value="Producción" />
+                </row>
+                <row id="nivRow6" visible="false">
+                    <listbox mold="select"  id="produccion" hflex="1"  >
+                    </listbox>
+                </row>
+                
+                <row>
+                    <div align="center">
+                        <button id="mostrarRev" label="Revisiones" style=" font-weight:normal ;"  sclass="myBlack" mold="trendy"/>
+                    </div>
+                </row>
+                <row>
+                    <div align="center">
+                        <button id="altaDeRevision" label="Agregar" style=" font-weight:normal ;"  sclass="myBlack" mold="trendy"/>
+                    </div>
+                </row>
+            </rows>
+                        
+        </grid>        
+                
+                
+                
+                
+        
+        
+        
+        <zscript><![CDATA[
+        void move(Component dragged) {
+            if (self instanceof Listitem) {
+                self.parent.insertBefore(dragged, self);
+            } else {
+                self.appendChild(dragged);
+            }
+            
+          void doDrop(DropEvent event, Component droped) {
+			Component dragged = event.getDragged();
+			droped.getParent().insertBefore(dragged, droped);
+		}  
+        }
+    ]]>
+        </zscript>   
+    
+            
+   
+        <separator height="50px"/>
+        <grid>
+            <columns>
+                <column label=""/>
+                <column label=""/>
+            </columns>
+            <rows>
+                <row>	
+                    <image id="backimg" src="/img/atras1.png" /> 
+                    <div align="right">
+                        <image id="sigimg" src="/img/siguiente1.png"/> 
+                    </div>
+                </row>
+                <row>	
+                    <label value="Atras" />
+                    <div align="right">
+                        <label value="Siguiente"/>
+                    </div>
+                </row>
+            </rows>
+        </grid>
+    </window> 
+    
+    <window height="1300px" title="Asistente para la asignación de material para una pieza" apply="controlador.Controller" id="materialAsis" visible="false"  border="normal" style="background-color: #000000;" >
+    
+        <div align="center">
+            <button id="accionMaterial" label="Mostrar" style=" font-weight:normal ;"  sclass="myBlack" mold="trendy"/>
+             
+        </div>
+                
+        <grid id="compGridMat" visible="false">
+            <columns>
+                <column label="Componente"/>
+                <column label="Opción"/>
+               
+            </columns>
+            <rows>
+                                  
+                
+                <row>	
+                    <label value="Selecciona un Material *" width="400px" />
+                    <listbox mold="select"  id="matOpc" hflex="1"  >
+                    </listbox>
+                </row>
+                <row id="nivRow1" visible="false"> 
+                    <label value="Ancho del Material"/>
+                    <div>
+                        <textbox id="anchoMat" />
+                        <label value="mm"/>
+                    </div>
+                </row>
+                <row id="nivRow2" visible="false">
+                    <label value="Espesor del Material"/>
+                    <div>
+                        <textbox id="espesorMat"/>
+                        <label value="mm"/>
+                    </div>
+                </row>    
+                <row>
+                    <label value="Menciona el paso de Alimentación (Avance) del rollo " width="400px" />
+                    <div>
+                        <textbox  id="pasoAlEnt" value="" width="200px"/>
+                        <label value=" mm" />
+                    </div>
+                </row>
+                <row>
+                    <label value="Tolerancia de ancho del rollo" width="400px"/>
+                    <div>
+                        <textbox value=" " id="tolEnt" width="200px"/>
+                        <label value=" %"/>
+                    </div>
+                </row>
+                <row>
+                    <label value="Peso de Blanking *"/>
+                    <div>
+                        <textbox value="" id="pesoBlEnt" width="200px"/>
+                        <label value=" kg"/>
+                    </div>
+                </row>    
+                <row>
+                    <label value="Peso de Parte *"/>
+                    <div>
+                        <textbox id="pesoParteEnt" width="200px"/>
+                        <label value=" kg"/>
+                    </div>
+                </row>
+                
+                
+                <row>
+                    <label value="Nivel de Ingeniería"/>
+                    <label id="nivelInge"/>
+                </row>
+                <row >
+                    <label value="Nombre de Parte"/>
+                    <label id="nombreParteR"/>   
+                </row>
+                <row>
+                    <label value="Número de Parte"/>
+                    <label id="numeroParterR"/>
+                </row>
+                <row visible="false" id="nivRow3">
+                    <label value="Proveedor"/>
+                    <label id="proveedors"/>
+                </row>
+                <row>
+                    <label value="Asigne un Cliente directo de la pieza"/>
+                    <listbox mold="select"  id="selCliente" hflex="1"  >
+                    </listbox>
+                </row>
+                <row>
+                    
+                        
+                    <button id="calculoAprov" label="Explotación" style=" font-weight:normal ;"  sclass="myWhite" mold="trendy"/>
+                    
+                    <div align="center">
+                   
+                        <label id="calculoAproLab" visible="false"/>
+                        <label id="calculoAproL" visible="false"/>
+                    </div>
+                </row>
+                <row>
+                                          
+                    <button id="calculoAprovT" label="Aprov Total" style=" font-weight:normal ;"  sclass="myWhite" mold="trendy"/>
+                    
+                    <div align="center">
+                   
+                        <label id="calculoAproLabT" visible="false"/>
+                        <label id="calculoAproLT" visible="false"/>
+                    </div>
+                </row>
+                <row id="nivRow4">
+                    <label value="Peso de Rollo Utilizado"/>
+                    
+                    
+                    <div align="center">
+                   
+                        <label id="pesoRolloUt"/>
+                        <label id="pesoRolloUtD" />
+                    </div>
+                </row>
+                
+                    
+            </rows>
+        </grid>        
+                
+                
+        
+        <zscript><![CDATA[
+        void move(Component dragged) {
+            if (self instanceof Listitem) {
+                self.parent.insertBefore(dragged, self);
+            } else {
+                self.appendChild(dragged);
+            }
+            
+          void doDrop(DropEvent event, Component droped) {
+			Component dragged = event.getDragged();
+			droped.getParent().insertBefore(dragged, droped);
+		}  
+        }
+    ]]>
+        </zscript>   
+
+        <separator height="50px"/>
+        <grid>
+            <columns>
+                <column label=""/>
+                <column label=""/>
+            </columns>
+            <rows>
+                <row>	
+                    <image id="backimg" src="/img/atras1.png" /> 
+                    <div align="right">
+                        <image id="sigimg" src="/img/siguiente1.png"/> 
+                    </div>
+                </row>
+                <row>	
+                    <label value="Atras" />
+                    <div align="right">
+                        <label value="Siguiente"/>
+                    </div>
+                </row>
+            </rows>
+        </grid>
+    </window> 
+    
+    <window height="1300px" title="Procesos" apply="controlador.Controller" id="formatosAsis" visible="false" >         
+        <grid>
+            <columns>
+                <column label="Procesos realizados en Prensas (Blanking y Tandem)"/>
+            </columns>
+            <rows>
+                <row>	
+                    <listbox id="procesosMaq" visible="false" >
+                        <listhead>
+                            <listheader label="Nombre del Proceso"/>
+                            <listheader label="Descripción"/>
+                            <listheader label="Máquina"/>
+                        </listhead>             
+                    </listbox>
+                </row>
+            </rows>
+        </grid>        
+        <div align="center">
+            <button id="accionProcesosMaq" label="Mostrar" style=" font-weight:normal ;"  sclass="myBlack" mold="trendy"/>
+        </div>
+        <zscript><![CDATA[
+        void move(Component dragged) {
+            if (self instanceof Listitem) {
+                self.parent.insertBefore(dragged, self);
+            } else {
+                self.appendChild(dragged);
+            }
+            
+          void doDrop(DropEvent event, Component droped) {
+			Component dragged = event.getDragged();
+			droped.getParent().insertBefore(dragged, droped);
+		}  
+        }
+    ]]>
+        </zscript>   
+        <separator height="50px"/>
+        <grid>
+            <columns>
+                <column label=""/>
+                <column label=""/>
+            </columns>
+            <rows>
+                <row>	
+                    <image id="backimg" src="/img/atras1.png" /> 
+                    <div align="right">
+                        <image id="sigimg" src="/img/siguiente1.png"/> 
+                    </div>
+                </row>
+                <row>	
+                    <label value="Atras" />
+                    <div align="right">
+                        <label value="Siguiente"/>
+                    </div>
+                </row>
+            </rows>
+        </grid>
+    </window> 
+    <window height="1300px" title="Procesos" apply="controlador.Controller" id="tfFormatos" visible="false" >
+        <grid>
+            <columns>
+                <column label="Procesos realizados en TF500"/>
+                <column label="Procesos realizados en TF1500"/>
+            </columns>
+            <rows>
+                <row>	
+                    <listbox id="procesosTF500" visible="false" >
+                        <listhead>
+                            <listheader label="Nombre del Proceso"/>
+                            <listheader label="Descripción"/>
+                            <listheader label="Máquina"/>
+                        </listhead>             
+                    </listbox>
+                    <listbox id="procesosTF1500" visible="false" >
+                        <listhead>
+                            <listheader label="Nombre del Proceso"/>
+                            <listheader label="Descripción"/>
+                            <listheader label="Máquina"/>
+                        </listhead>             
+                    </listbox>
+                </row>
+                <row id="nivRow1" visible="false">	
+                    <div align="center">
+                        <button id="confTF500" label="Configurar" style=" font-weight:normal ;"  sclass="myBlack" mold="trendy" visible="false"/>
+                    </div>
+                    <div align="center">
+                        <button id="confTF1500" label="Configurar" style=" font-weight:normal ;"  sclass="myBlack" mold="trendy" visible="false"/>
+                    </div>
+                </row>
+                <row id="nivRow2" visible="false">	
+                    
+                </row>
+            </rows>
+        </grid>        
+        <div align="center">
+            <button id="accionProcesosTF" label="Buscar" style=" font-weight:normal ;"  sclass="myBlack" mold="trendy"/>
+        </div>
+        <zscript><![CDATA[
+        void move(Component dragged) {
+            if (self instanceof Listitem) {
+                self.parent.insertBefore(dragged, self);
+            } else {
+                self.appendChild(dragged);
+            }
+            
+          void doDrop(DropEvent event, Component droped) {
+			Component dragged = event.getDragged();
+			droped.getParent().insertBefore(dragged, droped);
+		}  
+        }
+    ]]>
+        </zscript>   
+        <grid>
+            <columns>
+                <column label=""/>
+                <column label=""/>
+            </columns>
+            <rows>
+                <row>	
+                    <image id="backimg" src="/img/atras1.png" /> 
+                    <div align="right">
+                        <image id="sigimg" src="/img/siguiente1.png"/> 
+                    </div>
+                </row>
+                <row>	
+                    <label value="Atras" />
+                    <div align="right">
+                        <label value="Siguiente"/>
+                    </div>
+                </row>
+            </rows>
+        </grid>
+    </window> 
+</zk>

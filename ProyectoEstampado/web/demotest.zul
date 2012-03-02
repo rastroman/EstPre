@@ -1,0 +1,9 @@
+<?page title="My First ZK Spreadsheet application" contentType="text/html;charset=UTF-8"?>
+<zk>
+	<window title="My First ZK Spreadsheet Application"
+		border="normal" vflex="1" width="100%">
+		<spreadsheet src="/excel/bienvenido.xlsx" id="spreadsheet" maxrows="200"
+		maxcolumns="40" vflex="1" width="100%"></spreadsheet>
+                
+	</window>
+</zk>

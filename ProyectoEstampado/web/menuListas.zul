@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<zk xmlns="http://www.zkoss.org/2005/zul">
+                    
+                    
+            <window apply="controlador.Controller">        
+                   
+                  
+
+                                
+                   
+                   <listbox>
+                            <listhead>
+                               
+                            </listhead>    
+                            
+                            <listitem>
+                                <listcell id="listaConsulta" label="Consulta"/>
+                            </listitem>
+                          
+                            <listitem>
+                                <listcell id="listaReportes" label="Reportes"/>
+                            </listitem>
+                            <listitem>
+                                <listcell id="listaFormatos" label="Formatos"/>
+                            </listitem>
+                            
+                            
+                        </listbox>
+                        
+                        
+                        <listbox id="boxConsulta" visible="false">
+                            <listhead>
+                                <listheader label="Consultas"/>
+                                <listheader label=""/>
+                                <listheader width="38px"/>
+                            </listhead>    
+                            
+                            <listitem>
+                                <listcell>
+                                    <label value="No. Parte"/>                            
+                                </listcell>
+                                <listcell>
+                                    <textbox value=""/>                            
+                                </listcell> 
+                                
+                                <listcell>
+                               <image  src="/img/buscar.png" width="19px" height="19px" /> 
+                                </listcell>
+                            </listitem>
+                           <listitem>
+                                <listcell  label="Nombre Parte"/>
+                                <listcell>
+                                    <textbox value=""/>                            
+                                </listcell> 
+                                <listcell>
+                               <image id="image" src="/img/buscar.png" width="19px" height="19px" /> 
+                                </listcell>
+                            </listitem>
+                            
+                            <listitem>
+                                <listcell label="Nivel de Ingeniería"/>
+                                <listcell>
+                                    <textbox value=""/>                            
+                                </listcell>
+                                <listcell>
+                               <image  src="/img/buscar.png" width="19px" height="19px" /> 
+                                </listcell>
+                            </listitem>
+                            <listitem>
+                                <listcell label="Troquel"/>
+                                <listcell>
+                                    <textbox value=""/>                            
+                                </listcell> 
+                                <listcell>
+                               <image  src="/img/buscar.png" width="19px" height="19px" /> 
+                                </listcell>
+                            </listitem>
+                            <listitem>
+                                <listcell label="Material"/>
+                                <listcell>
+                                    <textbox value=""/>                            
+                                </listcell> 
+                                <listcell>
+                               <image  src="/img/buscar.png" width="19px" height="19px" /> 
+                                </listcell>
+                            </listitem>
+                        </listbox>
+                        
+                        
+                        
+                   <listbox id="boxReportes" visible="false">
+                            <listhead>
+                                <listheader label="Reportes"/>
+                            </listhead>    
+                            
+                            <listitem>
+                                <listcell  label="Parte"/>
+                            </listitem>
+                          
+                            <listitem>
+                                <listcell  label="Troquel"/>
+                            </listitem>
+                            <listitem>
+                                <listcell  label="Máquina"/>
+                            </listitem>
+                            <listitem>
+                                <listcell  label="Material"/>
+                            </listitem>
+                        </listbox>
+                        
+                          
+                   <listbox id="boxFormatos" visible="false">
+                            <listhead>
+                                <listheader label="Busqueda"/>
+                            </listhead>    
+                            
+                            <listitem>
+                                <listcell label="Excel"/>
+                            </listitem>
+                          
+                            <listitem>
+                                <listcell label="PDF"/>
+                            </listitem>
+                            <listitem>
+                                <listcell  label="HTML"/>
+                            </listitem>
+                          
+                        </listbox>   
+                        
+             </window>
+</zk>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<zk xmlns="http://www.zkoss.org/2005/zul">
+
+<window title="Características" apply="controlador.Controller">
+   <separator height="px"/>
+       <div align="center">
+    Arrastra las Características que deseas añadir.
+    
+        </div>
+   
+    <separator height="50px"/>
+    
+   
+   
+<grid>
+		<columns>
+			<column label=""/>
+			<column label=""/>
+		</columns>
+		<rows>
+			<row>	
+                        <image id="backimg" src="/img/atras1.png" /> 
+                        <div align="right">
+                        <image id="sigimg" src="/img/siguiente1.png"/> 
+                        </div>
+			</row>
+                        <row>	
+                        <label value="Atras" />
+                        <div align="right">
+                        <label value="Siguiente"/>
+                        </div>
+			</row>
+		</rows>
+	</grid>
+   
+   
+    
+    
+</window>   
+
+
+
+</zk>

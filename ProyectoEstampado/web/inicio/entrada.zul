@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<zk xmlns="http://www.zkoss.org/2005/zul">
+
+    <window apply="controlador.Controller"> 
+        <grid >
+            <columns>
+                <column width="370px"/>
+                <column label=""/>
+                        
+            </columns>
+            <rows>
+                <row height="120px" style="background-color:#E1E5E6;" >	
+                    <image   src="/img/logo.png" />
+                    <label value="APQP Automatización" style="font-weight:bold; font-size:15pt;"/>
+                </row>
+                <row>	
+                    <image  id="stx" src="/img/txt.jpg" />
+                    <div align="center">
+                        <image id="sts" src="/img/apqp2.png" />
+                    </div>
+                </row>
+                
+                <row >
+                    <label value="El avance de la tecnología ha conllevado a muchas empresas a que reestructuren sus funciones, hasta el grado que muchas han modificado su estructura organizativa a fin de adaptarse a estos cambios y dar paso a la fabricación de productos, que se tornen competitivos, considerando no solo la satisfacción de las necesidades que los consumidores demanda, sino las normativas de calidad que se requiere para su negociación, aceptación."/>
+                    <label  value=" APQP asegura que la colaboración del producto y del diseño del proceso (CPPD) se lleve a cabo. CPPD es una manera de asegurar que el diseño no solamente cumple con las expectativas futuras de los clientes, sino que también permite la inclusión inteligente, las entradas de la cadena de suministro y la interacción de de grupos para discutir la mejor manera de lograr un diseño sin fallas, incrementar la productividad y mantenerse alerta en cuanto a la calidad."/>
+
+         
+                </row>
+            
+                        
+            </rows>
+                
+        </grid>
+        
+        <grid>
+            <columns>
+			
+                <column label=""/>
+            </columns>
+            <rows>
+                <row style="background-color:#E1E5E6;">	
+                    <label value="1. Planear y Definir"/> 
+                    <label value="2. Diseño y Desarrollo del Producto"/> 
+                    <label value="3. Diseño y Desarrollo del Proceso "/> 
+                    <label value="4. Validación del Producto y Proceso "/> 
+                    <label value="5. Retroalimentación y Mejora Continua"/> 
+                   
+                </row>
+            </rows>
+        </grid>
+    
+   
+            
+        <separator height="100px"/>
+        
+        <grid>
+            <columns>
+                <column/>
+            
+            </columns>
+            <rows>
+                <row id="TdMod">
+                    <div align="center">
+                        <image id="stmodelo" src="/img/log3dd.png" width="600px" height="140px"/>
+                        <separator height="30px"/>
+                    </div>
+                </row>
+                
+            </rows>
+        </grid>
+    
+    </window>
+    
+</zk>

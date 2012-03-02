@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<zk xmlns="http://www.zkoss.org/2005/zul">
+    
+    <style>
+	 .windowStyle .z-window-embedded-cnt, 
+	              .z-window-embedded-body, 
+	              .z-window-overlapped-body, 
+	              .z-window-popup-body, 
+	              .z-window-highlighted-body, 
+	              .z-window-modal-body{
+	 	overflow:auto;
+	 }
+	</style>
+    <window title="Historial" apply="controlador.Controller" sclass="windowStyle" >
+    
+        <groupbox id="feo" closable="false" sclass="z-demo-config" xmlns:w='client'>
+            <caption label="Effect" id="capt" />
+            <vlayout>
+                <div align="center" id="t">
+                    <image id="historialimg" height="250px" width="250px" src="/img/historial2.png"  w:onClick="jq(this.$f('t')).show().fadeOut()"/>
+                    <separator height="10px"/>
+                    <label value="HISTORIAL " id="notes"/>                        
+                </div>
+            </vlayout>
+        </groupbox>
+   
+        <listbox id="historialbox" visible="false" fixedLayout="true"   >
+                        
+            <listhead sizable="true" >
+                <listheader label="Usuario"  />
+                <listheader label="Componente" />
+                <listheader label="Cambio" />
+                <listheader label="Fecha" />
+                                                    
+							
+            </listhead>
+            <listitem>
+						
+            </listitem>
+						
+        </listbox> 
+   
+   
+    </window>  
+</zk>

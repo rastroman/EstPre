@@ -1,0 +1,44 @@
+
+<zk xmlns="http://www.zkoss.org/2005/zul">
+<window title="Plan de Control" apply="controlador.Controller">
+
+
+
+<grid>
+		<columns>
+			<column label=""/>
+			<column label=""/>
+                        <column label=""/>
+                        <column width="50px" label="" />
+                        <column width="80px" label="" />
+                        
+		</columns>
+		<rows>
+			<row>	
+                        <label value="Numero de parte" />
+                        <textbox id="parte" />
+                        <button label="Coincidencias" id="boton" />
+                        <image id="CP"  align="left" src="/img/question.png"  />
+                        <label  id="CP2" />
+			</row>
+		</rows>
+</grid>
+       
+              <listbox id="sugerencia" visible="false" >
+						<listhead>
+							<listheader label="Número"/>
+							<listheader label="Nombre"/>
+                                                        <listheader label="Código Amef"/>
+                                                    
+							
+						</listhead>
+						<listitem>
+						
+						</listitem>
+						
+					</listbox>  
+
+<label id="consultap"/> 
+
+</window>  
+</zk>

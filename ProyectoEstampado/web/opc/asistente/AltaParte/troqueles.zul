@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<zk xmlns="http://www.zkoss.org/2005/zul">
+<window id="menuTroqueles" title="Creación de troqueles" apply="controlador.Controller">
+    <listbox id="padre">
+        <listhead>
+            <listheader label="Máquinas"/>
+        </listhead>
+        <listitem>
+            <listcell label="Blanking"/>
+            <attribute name="onClick">
+            blanking.setVisible(true);    
+            tandem.setVisible(false);
+            transfer.setVisible(false);
+            </attribute>
+        </listitem>
+        <listitem>
+            <listcell label="Tandem"/>
+            <attribute name="onClick">
+            tandem.setVisible(true);    
+            blanking.setVisible(false);
+            transfer.setVisible(false);
+            </attribute>
+							
+        </listitem>
+        <listitem>
+            <listcell label="Transfer"/>
+            <attribute name="onClick">
+            transfer.setVisible(true);    
+            tandem.setVisible(false);
+            blanking.setVisible(false);
+            </attribute>
+							
+        </listitem>
+    </listbox>
+    <listbox id="blanking" visible="false">
+        <listhead>
+            <listheader label="Blanking"/>
+							
+        </listhead>
+        <listitem >
+            <listcell label="200"/>
+		<attribute name="onClick">
+           
+            transfer.setVisible(false);    
+            tandem.setVisible(false);
+            blanking.setVisible(false);
+            padre.setVisible(false);
+            rz.setSrc("/opc/asistente/AltaParte/blanking/bl200.zul");
+           
+            </attribute>					
+        </listitem>
+        <listitem>
+            <listcell label="400"/>
+							
+        </listitem>
+        <listitem>
+            <listcell label="800"/>
+							
+        </listitem>
+    </listbox>
+    <listbox id="tandem" visible="false">
+        <listhead>
+            <listheader label="Tandem"/>
+							
+        </listhead>
+        <listitem>
+            <listcell label="200 Tipo A"/>
+							
+        </listitem>
+        <listitem>
+            <listcell label="200 Tipo B"/>
+							
+        </listitem>
+        <listitem>
+            <listcell label="400"/>
+							
+        </listitem>
+        <listitem>
+            <listcell label="800"/>
+							
+        </listitem>
+    </listbox>
+    
+    <listbox id="transfer" visible="false" >
+        <listhead>
+            <listheader label="Transfer"/>
+							
+        </listhead>
+        <listitem>
+            <listcell label="500"/>
+							
+        </listitem>
+        <listitem>
+            <listcell label="1500"/>
+							
+        </listitem>
+        
+    </listbox>
+    <include id="rz"/>
+    <grid>
+            <columns>
+                <column label=""/>
+                <column label=""/>
+            </columns>
+            <rows>
+                <row>	
+                    <image id="backimg" src="/img/atras1.png" /> 
+                    <div align="right">
+                        <image id="sigimg" src="/img/siguiente1.png"/> 
+                    </div>
+                </row>
+                <row>	
+                    <label value="Atras" />
+                    <div align="right">
+                        <label value="Siguiente"/>
+                    </div>
+                </row>
+            </rows>
+        </grid>
+        
+        
+        
+    </window>
+    
+    
+</zk>
